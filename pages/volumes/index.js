@@ -9,17 +9,11 @@ function HomePage() {
       <h2>All volumes</h2>
       <p>{introduction}</p>
       <ul>
-        <li>
-          <Link href="/volumes/the-fellowship-of-the-ring">
-            {volumes[0].title}
-          </Link>
-        </li>
-        <li>
-          <Link href="/volumes/the-two-towers">{volumes[1].title}</Link>
-        </li>
-        <li>
-          <Link href="/volumes/the-return-of-the-king">{volumes[2].title}</Link>
-        </li>
+        {volumes.map(({ title, slug }) => (
+          <li key={slug}>
+            <Link href={`/volumes/${slug}`}>{title}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
